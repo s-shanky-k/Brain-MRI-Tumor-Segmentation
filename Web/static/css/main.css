@@ -1,0 +1,20 @@
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.img-div{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:row;
+    text-align: center;
+}
+.img-box {
+    padding: 10px;
+}
+p {
+    display:inline-block;
+}

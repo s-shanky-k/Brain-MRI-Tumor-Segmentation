@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+<title>BRAIN TUMOR SEGMENTATION</title>
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for message in messages %}
+	<script>
+		alert("{{ message }}");
+	</script>
+	{% endfor %}
+	{% endif %}
+{% endwith %}
+
+<center>
+<div style="margin: auto">
+	<h2>Brain Tumor Segmentation</h1>
+
+	<form method="post" action="/" enctype="multipart/form-data">	
+		<input type="file" name="file" autocomplete="off" required><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+
+<div style="display: flex; justify-content:center; align-items:center; flex-direction:row;">
+	{% if mask and imgWithMask and img%}
+	<div style="padding: 10px;">
+		<img src="{{ url_for('display_image', filename=img) }}">
+		<p>ORIGINAL MRI</p>
+	</div>
+	<div style="padding: 10px;">
+		<img src="{{ url_for('display_results', filename=mask) }}">
+		<p>PREDICTED MASK</p>
+	</div>
+	<div style="padding: 10px;">
+		<img src="{{ url_for('display_results', filename=imgWithMask) }}">
+		<p>PREDICTED MASK ON MRI</p>
+	</div>
+	{% endif %}
+	{% if message and img%}
+	<div style="padding: 10px;">
+		<img src="{{ url_for('display_image', filename=img) }}">
+		<p>NO TUMOR</p>
+	</div>
+{% endif %}
+</div>
+
+
+
+</center>
+</body>
+</html>
+
+
+<!-- 
+
+ -->
+
